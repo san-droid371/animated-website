@@ -4,8 +4,22 @@ let crsrBlur = document.querySelector("#cursor-blur");
 document.addEventListener("mousemove", (dets) => {
     crsr.style.left = dets.x + "px"
     crsr.style.top = dets.y + "px"
-    crsrBlur.style.left = dets.x - 200 + "px"
-    crsrBlur.style.top = dets.y - 200 + "px"
+    crsrBlur.style.left = dets.x - 150 + "px"
+    crsrBlur.style.top = dets.y - 150 + "px"
+})
+
+let h4All = document.querySelectorAll("#nav h4");
+h4All.forEach((elem) => {
+    elem.addEventListener("mouseenter", () => {
+        crsr.style.scale= 3
+        crsr.style.border = "0.5px solid #fff"
+        crsr.style.backgroundColor = "transparent"
+    })
+    elem.addEventListener("mouseleave", () => {
+        crsr.style.scale= 1
+        crsr.style.border = 0
+        crsr.style.backgroundColor = ""
+    })
 })
 
 gsap.to("#nav", {
@@ -46,3 +60,9 @@ gsap.to("#main", {
         scrub: 2,
     }
 })
+
+// gsap.to("#page3", {
+//     scrollTo: {
+//         trigger: "#"
+//     }
+// })
